@@ -29,7 +29,7 @@ describe "redis" do
     @redis['foo'] = 'bob'
     @redis['foo'].should == 'bob'
 
-    @namespaced.incr('counter', 2)
+    @namespaced.incrby('counter', 2)
     @namespaced['counter'].to_i.should == 2
     @redis['counter'].should == nil
     @namespaced.type('counter').should == 'string'
@@ -116,22 +116,22 @@ describe "redis" do
   end
 
   it "should support command aliases (delete)" do 
-    @namespaced.delete('foo')
+    @namespaced.del('foo')
     @redis.should_not have_key('ns:foo')
   end
 
   it "should support command aliases (set_add)" do 
-    @namespaced.set_add('bar', 'quux')
+    @namespaced.sadd('bar', 'quux')
     @namespaced.smembers('bar').should include('quux')
   end
 
   it "should support command aliases (push_head)" do 
-    @namespaced.push_head('bar', 'quux')
+    @namespaced.lpush('bar', 'quux')
     @redis.llen('ns:bar').should == 1
   end
 
   it "should support command aliases (zset_add)" do 
-    @namespaced.zset_add('bar', 1, 'quux')
+    @namespaced.zadd('bar', 1, 'quux')
     @redis.zcard('ns:bar').should == 1
   end
 

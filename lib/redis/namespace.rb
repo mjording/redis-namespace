@@ -123,10 +123,52 @@ class Redis
       "[]"               => [ :first ],
       "[]="              => [ :first ]
     }
-
+    ALIASES = {
+          "flush_db" => "flushdb",
+          "flush_all" => "flushall",
+          "last_save" => "lastsave",
+          "key?" => "exists",
+          "delete" => "del",
+          "randkey" => "randomkey",
+          "list_length" => "llen",
+          "push_tail" => "rpush",
+          "push_head" => "lpush",
+          "pop_tail" => "rpop",
+          "pop_head" => "lpop",
+          "list_set" => "lset",
+          "list_range" => "lrange",
+          "list_trim" => "ltrim",
+          "list_index" => "lindex",
+          "list_rm" => "lrem",
+          "set_add" => "sadd",
+          "set_delete" => "srem",
+          "set_count" => "scard",
+          "set_member?" => "sismember",
+          "set_members" => "smembers",
+          "set_intersect" => "sinter",
+          "set_intersect_store" => "sinterstore",
+          "set_inter_store" => "sinterstore",
+          "set_union" => "sunion",
+          "set_union_store" => "sunionstore",
+          "set_diff" => "sdiff",
+          "set_diff_store" => "sdiffstore",
+          "set_move" => "smove",
+          "set_unless_exists" => "setnx",
+          "rename_unless_exists" => "renamenx",
+          "type?" => "type",
+          "zset_add" => "zadd",
+          "zset_count" => "zcard",
+          "zset_range_by_score" => "zrangebyscore",
+          "zset_reverse_range" => "zrevrange",
+          "zset_range" => "zrange",
+          "zset_delete" => "zrem",
+          "zset_score" => "zscore",
+          "zset_incr_by" => "zincrby",
+          "zset_increment_by" => "zincrby"
+        }
     # support previous versions of redis gem
-    ALIASES = (defined? Redis::Client) ? Redis::Client::ALIASES : Redis::ALIASES
-
+    #ALIASES = (defined? Redis::Client) ? Redis::Client::ALIASES : Redis::ALIASES
+    #ALIASES = (defined? Redis::Client) ? Redis.instance_methods : Redis::ALIASES
     attr_accessor :namespace
 
     def initialize(namespace, options = {})
