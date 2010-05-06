@@ -12,11 +12,11 @@ end
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "redis-namespace"
+    gemspec.name = "opengotham_redis-namespace"
     gemspec.summary = "Namespaces Redis commands."
-    gemspec.email = "chris@ozmm.org"
-    gemspec.homepage = "http://github.com/defunkt/redis-namespace"
-    gemspec.authors = ["Chris Wanstrath"]
+    gemspec.email = "mjording@opengotham.com"
+    gemspec.homepage = "http://github.com/opengotham/redis-namespace"
+    gemspec.authors = ["Matthew Jording"]
     gemspec.version = '0.4.3'
     gemspec.add_dependency 'redis'
     gemspec.description = <<description
