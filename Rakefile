@@ -17,7 +17,7 @@ begin
     gemspec.email = "mjording@opengotham.com"
     gemspec.homepage = "http://github.com/opengotham/redis-namespace"
     gemspec.authors = ["Matthew Jording"]
-    gemspec.version = '0.4.3'
+    gemspec.version = '0.4.4'
     gemspec.add_dependency 'redis', ">= 2.0.0.rc2"
     gemspec.description = <<description
 Adds a Redis::Namespace class which can be used to namespace calls
